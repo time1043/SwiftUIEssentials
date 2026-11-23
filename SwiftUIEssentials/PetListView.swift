@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct PetListView: View {
-    var model: PetStore
-    
+    @Bindable var viewModel: PetStoreViewModel
+
     var body: some View {
         List {
             Section("My Pets") {
-                ForEach(model.myPets) { pet in
+                ForEach(viewModel.myPets) { pet in
                     row(pet: pet)
                 }
             }
             Section("Other Pets") {
-                ForEach(model.otherPets) { pet in
+                ForEach(viewModel.otherPets) { pet in
                     row(pet: pet)
                 }
             }
         }
+        .searchable(text: $viewModel.searchText)
     }
 
     private func row(pet: Pet) -> some View {
         PetRowView(pet: pet)
             .swipeActions(edge: .leading) {
-                Button("Award", systemImage: "trophy") {
+                Button("Reward", systemImage: "trophy") {
                     pet.giveAward()
                 }
                 .tint(.orange)
@@ -42,5 +43,5 @@ struct PetListView: View {
 }
 
 #Preview {
-    PetListView(model: PetStore())
+    PetListView(viewModel: PetStoreViewModel(petStore: PetStore()))
 }

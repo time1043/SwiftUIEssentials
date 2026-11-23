@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        PetListView(model: PetStore())
+        PetListView(viewModel: PetStoreViewModel(petStore: PetStore()))
     }
 }
 
