@@ -14,12 +14,12 @@ struct RatingContainerView: View {
         Gauge(value: Double(rating), in: 0...10) {
             Text("Rating")
         }
-        RatingView()
+        RatingView(rating: $rating)
     }
 }
 
 struct RatingView: View {
-    @State var rating: Int = 5
+    @Binding var rating: Int
 
     var body: some View {
         HStack {
@@ -44,11 +44,6 @@ struct RatingView: View {
             .labelStyle(.iconOnly)
         }
     }
-}
-
-#Preview("RatingView") {
-    // RatingView(rating: 3)
-    RatingView()
 }
 
 #Preview("RatingContainerView") {
