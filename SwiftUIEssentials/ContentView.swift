@@ -12,6 +12,11 @@ struct ContentView: View {
         // horizontal / vertical
         HStack {
             Image(whiskers.profileImage)
+                .clipShape(.circle)
+                .shadow(radius: 3)
+                .overlay {
+                    Circle().stroke(.green, lineWidth: 2)
+                }
 
             VStack(alignment: .leading) {
                 Label("Whiskers", systemImage: "cat.fill")
