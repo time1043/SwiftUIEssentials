@@ -21,6 +21,7 @@ struct RatingView: View {
             .labelStyle(.iconOnly)
 
             Text(rating, format: .number.precision(.integerLength(2)))
+                .contentTransition(.numericText(value: Double(rating)))
                 .font(.title.bold())
 
             Button("Increase", systemImage: "plus.circle") {
