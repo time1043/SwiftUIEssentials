@@ -11,11 +11,14 @@ struct ContentView: View {
     var body: some View {
         // horizontal / vertical
         HStack {
-            Label("Whiskers", systemImage: "cat.fill")
+            Image(whiskers.profileImage)
+
+            VStack(alignment: .leading) {
+                Label("Whiskers", systemImage: "cat.fill")
+                Text("Tightrope walking")
+            }
 
             Spacer()
-
-            Text("Tightrope walking")
         }
     }
 }
@@ -23,3 +26,10 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+let whiskers = Pet(
+    "Whiskers",
+    kind: .cat,
+    trick: "Tightrope walking",
+    profileImage: "Whiskers"
+)
