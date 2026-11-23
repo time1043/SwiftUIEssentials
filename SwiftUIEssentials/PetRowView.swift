@@ -15,7 +15,14 @@ struct PetRowView: View {
             profileImage
 
             VStack(alignment: .leading) {
-                Text(pet.name)
+                HStack(alignment: .firstTextBaseline) {
+                    Text(pet.name)
+
+                    if pet.hasAward {
+                        Image(systemName: "trophy.fill")
+                            .foregroundStyle(.orange)
+                    }
+                }
                 Text(pet.trick)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

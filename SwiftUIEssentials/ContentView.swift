@@ -14,29 +14,30 @@ struct ContentView: View {
         List {
             Section("My Pets") {
                 ForEach(model.myPets) { pet in
-                    PetRowView(pet: pet)
-                        .swipeActions(edge: .leading) {
-                            Button("Award", systemImage: "trophy") {
-                                // Give pet award
-                            }
-                            .tint(.orange)
-
-                            ShareLink(
-                                item: pet,
-                                preview: SharePreview(
-                                    "Pet",
-                                    image: Image(pet.name)
-                                )
-                            )
-                        }
+                    row(pet: pet)
                 }
             }
             Section("Other Pets") {
                 ForEach(model.otherPets) { pet in
-                    PetRowView(pet: pet)
+                    row(pet: pet)
                 }
             }
         }
+    }
+
+    private func row(pet: Pet) -> some View {
+        PetRowView(pet: pet)
+            .swipeActions(edge: .leading) {
+                Button("Award", systemImage: "trophy") {
+                    pet.giveAward()
+                }
+                .tint(.orange)
+
+                ShareLink(
+                    item: pet,
+                    preview: SharePreview("Pet", image: Image(pet.name))
+                )
+            }
     }
 }
 

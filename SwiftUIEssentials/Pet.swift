@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Pet: Identifiable {
+@Observable
+class Pet: Identifiable {
     enum Kind {
         case cat
         case dog
@@ -32,12 +33,12 @@ struct Pet: Identifiable {
         }
     }
 
-    let id = UUID()
     var name: String
     var kind: Kind
     var trick: String
     var profileImage: String
     var favoriteColor: Color
+    var hasAward: Bool = false
 
     init(_ name: String, kind: Kind, trick: String, profileImage: String, favoriteColor: Color) {
         self.name = name
@@ -45,6 +46,10 @@ struct Pet: Identifiable {
         self.trick = trick
         self.profileImage = profileImage
         self.favoriteColor = favoriteColor
+    }
+
+    func giveAward() {
+        hasAward = true
     }
 }
 
