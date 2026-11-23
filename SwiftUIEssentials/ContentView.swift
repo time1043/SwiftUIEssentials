@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    var model = PetStore()
+
     var body: some View {
-        // ...
+        PetRowView(pet: model.pet(named: "Whiskers"))
+
+        PetRowView(pet: model.pet(named: "Roofus"))
+
+        PetRowView(pet: model.pet(named: "Bubbles"))
     }
 }
 
