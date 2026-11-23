@@ -11,8 +11,10 @@ struct ContentView: View {
     var model: PetStore
     
     var body: some View {
-        List(model.allPets) { pet in
-            PetRowView(pet: pet)
+        List {
+            ForEach(model.allPets) { pet in
+                PetRowView(pet: pet)
+            }
         }
     }
 }
