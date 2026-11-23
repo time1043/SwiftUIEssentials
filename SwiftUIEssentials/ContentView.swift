@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var pets = Pet.samplePets
+
     var body: some View {
-        // horizontal / vertical
-        HStack {
-            Label("Whiskers", systemImage: "cat.fill")
+        List(pets) { pet in
+            HStack {
+                Label("Whiskers", systemImage: "cat.fill")
 
-            Spacer()
+                Spacer()
 
-            Text("Tightrope walking")
+                Text("Tightrope walking")
+            }
         }
     }
 }
