@@ -13,11 +13,11 @@ struct ContentView: View {
     var body: some View {
         List(pets) { pet in
             HStack {
-                Label("Whiskers", systemImage: "cat.fill")
+                Label(pet.name, systemImage: pet.kind.systemImage)
 
                 Spacer()
 
-                Text("Tightrope walking")
+                Text(pet.trick)
             }
         }
     }
