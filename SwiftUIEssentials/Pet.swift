@@ -9,7 +9,11 @@ import SwiftUI
 
 @Observable
 class Pet: Identifiable {
-    enum Kind {
+    // Pet.Kind.allCases
+    // kind.name
+    // kind.id
+    // kind.systemImage
+    enum Kind: String, CaseIterable, Identifiable {
         case cat
         case dog
         case fish
@@ -19,6 +23,12 @@ class Pet: Identifiable {
         case rabbit
         case bug
 
+        var id: Self { self }
+
+        var name: String {
+            rawValue.capitalized
+        }
+
         var systemImage: String {
             switch self {
             case .cat: return "cat.fill"
@@ -27,7 +37,7 @@ class Pet: Identifiable {
             case .bird: return "bird.fill"
             case .lizard: return "lizard.fill"
             case .turtle: return "tortoise.fill"
-            case .rabbit: return "rabbit.fill"
+            case .rabbit: return "hare.fill"
             case .bug: return "ant.fill"
             }
         }
