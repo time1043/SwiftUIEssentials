@@ -10,18 +10,21 @@ import SwiftUI
 struct PetRowView: View {
     var body: some View {
         HStack {
-            Image(whiskers.profileImage)
-                .clipShape(.circle)
-                .shadow(radius: 3)
-                .overlay {
-                    Circle()
-                        .stroke(.green, lineWidth: 2)
-                }
+            profileImage
 
             Text("Whiskers")
 
             Spacer()
         }
+    }
+
+    private var profileImage: some View {
+        Image(whiskers.profileImage)
+            .clipShape(.circle)
+            .shadow(radius: 3)
+            .overlay {
+                Circle().stroke(.green, lineWidth: 2)
+            }
     }
 }
 
