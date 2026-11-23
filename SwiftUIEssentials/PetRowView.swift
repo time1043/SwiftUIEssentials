@@ -12,7 +12,12 @@ struct PetRowView: View {
         HStack {
             profileImage
 
-            Text("Whiskers")
+            VStack(alignment: .leading) {
+                Text("Whiskers")
+                Text("Tightrope walking")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
 
             Spacer()
         }
