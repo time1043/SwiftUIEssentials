@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var count = 0
+
     var body: some View {
+        let doubleCount = count * 2
+
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(count) * 2 = \(doubleCount)")
+            Button("Increment") {
+                count += 1
+            }
         }
         .padding()
     }
