@@ -9,19 +9,16 @@ import SwiftUI
 
 struct PetRowView: View {
     var body: some View {
-        // horizontal / vertical
         HStack {
             Image(whiskers.profileImage)
                 .clipShape(.circle)
                 .shadow(radius: 3)
                 .overlay {
-                    Circle().stroke(.green, lineWidth: 2)
+                    Circle()
+                        .stroke(.green, lineWidth: 2)
                 }
 
-            VStack(alignment: .leading) {
-                Label("Whiskers", systemImage: "cat.fill")
-                Text("Tightrope walking")
-            }
+            Text("Whiskers")
 
             Spacer()
         }
