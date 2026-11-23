@@ -37,11 +37,13 @@ struct Pet: Identifiable {
     var kind: Kind
     var trick: String
     var profileImage: String
+    var favoriteColor: Color
 
-    init(_ name: String, kind: Kind, trick: String, profileImage: String) {
+    init(_ name: String, kind: Kind, trick: String, profileImage: String, favoriteColor: Color) {
         self.name = name
         self.kind = kind
         self.trick = trick
         self.profileImage = profileImage
+        self.favoriteColor = favoriteColor
     }
 }

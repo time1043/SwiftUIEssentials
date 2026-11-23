@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct PetRowView: View {
+    var pet: Pet
+    
     var body: some View {
         HStack {
             profileImage
 
             VStack(alignment: .leading) {
-                Text("Whiskers")
-                Text("Tightrope walking")
+                Text(pet.name)
+                Text(pet.trick)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -24,11 +26,11 @@ struct PetRowView: View {
     }
 
     private var profileImage: some View {
-        Image(whiskers.profileImage)
+        Image(pet.profileImage)
             .clipShape(.circle)
             .shadow(radius: 3)
             .overlay {
-                Circle().stroke(.green, lineWidth: 2)
+                Circle().stroke(pet.favoriteColor, lineWidth: 2)
             }
     }
 }
@@ -37,9 +39,10 @@ let whiskers = Pet(
     "Whiskers",
     kind: .cat,
     trick: "Tightrope walking",
-    profileImage: "Whiskers"
+    profileImage: "Whiskers",
+    favoriteColor: .green
 )
 
 #Preview {
-    PetRowView()
+    PetRowView(pet: whiskers)
 }
