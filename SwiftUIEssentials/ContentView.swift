@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Whiskers")
+        // horizontal / vertical
+        HStack {
+            Label("Whiskers", systemImage: "cat.fill")
 
-        Image(systemName: "cat.fill")
+            Spacer()
 
-        Button("Give Treat") {
-            // Give Whiskers a treat
+            Text("Tightrope walking")
         }
     }
 }
