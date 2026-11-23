@@ -54,7 +54,9 @@ class Pet: Identifiable {
 }
 
 extension Pet: Transferable {
-    static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation { $0.name }
+    nonisolated static var transferRepresentation: some TransferRepresentation {
+        ProxyRepresentation { pet in
+            MainActor.assumeIsolated { pet.name }
+        }
     }
 }
