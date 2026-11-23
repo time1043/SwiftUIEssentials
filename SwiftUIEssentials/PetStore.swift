@@ -18,8 +18,4 @@ class PetStore {
         Pet("Sheldon", kind: .turtle, trick: "Kickflip", profileImage: "Sheldon", favoriteColor: .brown),
         Pet("Chirpy", kind: .bug, trick: "Canon in D", profileImage: "Chirpy", favoriteColor: .orange)
     ]
-    
-    func pet(named name: String) -> Pet {
-        allPets.first { $0.name == name }!
-    }
 }
