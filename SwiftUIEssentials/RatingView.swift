@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct RatingContainerView: View {
+    @State private var rating: Int = 5
+
+    var body: some View {
+        Gauge(value: Double(rating), in: 0...10) {
+            Text("Rating")
+        }
+        RatingView()
+    }
+}
+
 struct RatingView: View {
     @State var rating: Int = 5
 
@@ -35,7 +46,12 @@ struct RatingView: View {
     }
 }
 
-#Preview {
+#Preview("RatingView") {
     // RatingView(rating: 3)
     RatingView()
+}
+
+#Preview("RatingContainerView") {
+    // RatingContainerView(rating: 3)
+    RatingContainerView()
 }
