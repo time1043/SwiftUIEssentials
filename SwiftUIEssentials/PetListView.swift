@@ -44,3 +44,21 @@ struct PetListView: View {
 #Preview {
     PetListView(model: PetStore())
 }
+
+#Preview("Adaptive buttons") {
+    Button("Reward", systemImage: "trophy") {
+        // Give pet award
+    }
+    // .buttonStyle(.borderless)
+    // .buttonStyle(.bordered)
+    // .buttonStyle(.borderedProminent)
+}
+
+#Preview("Adaptive toggles") {
+    @Previewable @State var isNocturnal = false
+
+    Toggle("Nocturnal Mode", systemImage: "moon", isOn: $isNocturnal)
+    // .toggleStyle(.switch)
+    // .toggleStyle(.checkbox)
+    // .toggleStyle(.button)
+}
