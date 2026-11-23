@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var count = 0
-
     var body: some View {
-        let doubleCount = count * 2
+        Text("Whiskers")
 
-        VStack {
-            Text("\(count) * 2 = \(doubleCount)")
-            Button("Increment") {
-                count += 1
-            }
+        Image(systemName: "cat.fill")
+
+        Button("Give Treat") {
+            // Give Whiskers a treat
         }
-        .padding()
     }
 }
 
