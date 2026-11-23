@@ -15,6 +15,20 @@ struct ContentView: View {
             Section("My Pets") {
                 ForEach(model.myPets) { pet in
                     PetRowView(pet: pet)
+                        .swipeActions(edge: .leading) {
+                            Button("Award", systemImage: "trophy") {
+                                // Give pet award
+                            }
+                            .tint(.orange)
+
+                            ShareLink(
+                                item: pet,
+                                preview: SharePreview(
+                                    "Pet",
+                                    image: Image(pet.name)
+                                )
+                            )
+                        }
                 }
             }
             Section("Other Pets") {

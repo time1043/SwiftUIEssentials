@@ -47,3 +47,9 @@ struct Pet: Identifiable {
         self.favoriteColor = favoriteColor
     }
 }
+
+extension Pet: Transferable {
+    static var transferRepresentation: some TransferRepresentation {
+        ProxyRepresentation { $0.name }
+    }
+}
