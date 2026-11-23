@@ -9,6 +9,8 @@ import SwiftUI
 
 @Observable
 class Pet: Identifiable {
+    let id = UUID()
+    
     // Pet.Kind.allCases
     // kind.name
     // kind.id

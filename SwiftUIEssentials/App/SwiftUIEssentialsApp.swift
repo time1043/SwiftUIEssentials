@@ -13,5 +13,17 @@ struct SwiftUIEssentialsApp: App {
         WindowGroup {
             ContentView()
         }
+
+        WindowGroup(
+            "Training History",
+            id: "history",
+            for: TrainingHistory.ID.self
+        ) { $id in
+            TrainingHistoryView(historyID: $id)
+        }
+
+        WindowGroup("Pet Detail", id: "detail", for: Pet.ID.self) { $id in
+            PetDetailView(petID: $id)
+        }
     }
 }

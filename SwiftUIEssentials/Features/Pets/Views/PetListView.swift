@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PetListView: View {
+    @Environment(\.openWindow) private var openWindow
+
     @Bindable var viewModel: PetStoreViewModel
 
     var body: some View {
@@ -40,18 +42,23 @@ struct PetListView: View {
     }
 
     private func row(pet: Pet) -> some View {
-        PetRowView(pet: pet)
-            .swipeActions(edge: .leading) {
-                Button("Reward", systemImage: "trophy") {
-                    pet.giveAward()
-                }
-                .tint(.orange)
-
-                ShareLink(
-                    item: pet,
-                    preview: SharePreview("Pet", image: Image(pet.name))
-                )
+        Button {
+            openWindow(id: "detail", value: pet.id)
+        } label: {
+            PetRowView(pet: pet)
+        }
+        .buttonStyle(.plain)
+        .swipeActions(edge: .leading) {
+            Button("Reward", systemImage: "trophy") {
+                pet.giveAward()
             }
+            .tint(.orange)
+
+            ShareLink(
+                item: pet,
+                preview: SharePreview("Pet", image: Image(pet.name))
+            )
+        }
     }
 }
 
