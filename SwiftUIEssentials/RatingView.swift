@@ -13,7 +13,9 @@ struct RatingView: View {
     var body: some View {
         HStack {
             Button("Decrease", systemImage: "minus.circle") {
-                rating -= 1
+                withAnimation {
+                    rating -= 1
+                }
             }
             .disabled(rating == 0)
             .labelStyle(.iconOnly)
@@ -22,7 +24,9 @@ struct RatingView: View {
                 .font(.title.bold())
 
             Button("Increase", systemImage: "plus.circle") {
-                rating += 1
+                withAnimation {
+                    rating += 1
+                }
             }
             .disabled(rating == 10)
             .labelStyle(.iconOnly)
